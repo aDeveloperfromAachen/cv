@@ -6,71 +6,102 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f0f2f5;
+      --bg: #eef2f3;
       --card: #ffffff;
       --primary: #256d85;
-      --text: #333333;
+      --text: #2c3e50;
+      --muted: #7f8c8d;
+      --radius: 8px;
+      --spacing: 20px;
     }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
-      padding: 0;
       font-family: 'Montserrat', sans-serif;
       background-color: var(--bg);
       color: var(--text);
+      line-height: 1.6;
     }
     .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px;
+      width: 90%; max-width: 960px;
+      margin: auto;
+      padding: var(--spacing) 0;
     }
     header {
       text-align: center;
-      padding: 40px 0;
+      padding-bottom: var(--spacing);
     }
     header h1 {
-      margin: 0;
       font-size: 2.8rem;
       color: var(--primary);
+      margin-bottom: 5px;
     }
     header p {
-      margin: 5px 0;
-      color: var(--primary);
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 2px 0;
     }
-    section {
-      margin-bottom: 40px;
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing);
+      margin-top: var(--spacing);
     }
-    .card {
-      background: var(--card);
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 20px;
-      margin-bottom: 20px;
-    }
-    .card h2 {
-      margin-top: 0;
-      color: var(--primary);
-    }
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .card img {
-      width: 100%;
-      border-radius: 4px;
-      margin-top: 10px;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    a {
+    nav a {
       color: var(--primary);
       text-decoration: none;
       font-weight: 600;
+      font-size: 0.95rem;
+      position: relative;
     }
-    a:hover {
-      text-decoration: underline;
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width .3s;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
     }
+    nav a:hover::after {
+      width: 100%;
+    }
+    section { margin-bottom: calc(var(--spacing) * 1.5); }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--spacing);
+    }
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: var(--spacing);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .card h3 {
+      margin-bottom: 10px;
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+    .card p { margin-bottom: 10px; }
+    .card img {
+      width: 100%;
+      border-radius: var(--radius);
+      margin-bottom: 10px;
+    }
+    .coming {
+      font-style: italic;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    ul { list-style: inside circle; margin-left: 10px; }
+    a { color: var(--primary); }
   </style>
 </head>
 <body>
@@ -79,64 +110,76 @@
       <h1>Selahaddin Alperen MANAP</h1>
       <p>Smart Start Project Engineer @ Bosch ATMO-8</p>
       <p>Mechanical Engineering Student @ Eskişehir Osmangazi University</p>
-      <p>Dynamic & versatile professional experienced in project management, game and web development.</p>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#blog">Blog</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#skills">Skills</a>
+        <a href="#hobbies">Hobbies</a>
+      </nav>
     </header>
 
-    <section>
-      <div class="card">
-        <h2>Projects</h2>
-        <div class="project-grid">
-          <div>
-            <h3>Mig-21 Fishbed Cirit Pylon</h3>
-            <img src="mig21.png" alt="Mig-21">
-            <p>We integrated Cirit missile (Aselsan) into the Mig-21 to solve balance issues during the Vietnamese Civil War.</p>
-          </div>
-          <div>
-            <h3>Kea Interactive Co.</h3>
-            <p>One-man mobile app and indie game development. <!-- Google Play link placeholder --></p>
-          </div>
-          <div>
-            <h3>App Store – Selahaddin Alperen Manap</h3>
-            <p>Independent game and app projects published under this name.</p>
-          </div>
-          <div>
-            <h3><a href="https://www.etsy.com/shop/templatesbyalperen?ref=dashboard-header#about">templatesbyalperen</a></h3>
-            <img src="data.jpg" alt="Templates Preview">
-            <p>Helping students and small businesses with productivity tools.</p>
-            <ul>
-              <li>Complete Student Package</li>
-              <li>Productivity Hack</li>
-              <li>Project Manager OS</li>
-              <li>Habit Tracker Pro</li>
-              <li>Financial Tracker Pro</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Kea Interactive</h3>
-            <p>
-              <a href="https://kea-interactive.ghost.io/">Website</a> |
-              <a href="https://linktr.ee/keainteractive">Games & Social Media</a> |
-              <a href="https://store.steampowered.com/app/3812540/Mobile_Phone_Shop_Simulator/">Upcoming Games</a>
-            </p>
-          </div>
-          <div>
-            <h3>Cost Reduction in Special Machinery Design</h3>
-            <p>On going...</p>
-          </div>
+    <section id="projects">
+      <h2 style="color: var(--primary); margin-bottom: var(--spacing);">Projects</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Mig-21 Fishbed Cirit Pylon</h3>
+          <img src="mig21.png" alt="Mig-21 Fishbed">
+          <p>Integrated Cirit missile (Aselsan) into Mig-21 to solve balance issues during the Vietnamese Civil War.</p>
+        </div>
+
+         <div class="card">
+          <h3>Kea Interactive</h3>
+          <p>
+            <a href="https://kea-interactive.ghost.io/">Website</a> | 
+            <a href="https://linktr.ee/keainteractive">Games & Social</a> | 
+            <a href="https://store.steampowered.com/app/3812540/Mobile_Phone_Shop_Simulator/">Upcoming Games</a>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Kea Interactive Co. (Google Play)</h3>
+          <p>One-man mobile app & indie game studio.</p>
+          <p class="coming">Google Play link coming soon.</p>
+        </div>
+
+        <div class="card">
+          <h3>App Store – Selahaddin Alperen Manap</h3>
+          <p>Independent game and app projects published under this account.</p>
+        </div>
+
+        <div class="card">
+          <h3><a href="https://www.etsy.com/shop/templatesbyalperen?ref=dashboard-header#about">templatesbyalperen</a></h3>
+          
+          <p>Helping students & small businesses with productivity tools.</p>
+          <ul>
+            <li>Complete Student Package</li>
+            <li>Productivity Hack</li>
+            <li>Bright School Planner</li>
+            <li>Cosy School Planner</li>
+            <li>Student Dashboard</li>
+          </ul>
+        </div>
+
+       
+
+        <div class="card">
+          <h3>Cost Reduction in Special Machinery Design</h3>
+          <p>Ongoing...</p>
         </div>
       </div>
     </section>
 
-    <section>
+    <section id="blog">
+      <h2 style="color: var(--primary); margin-bottom: var(--spacing);">My Blog</h2>
       <div class="card">
-        <h2>My Blog</h2>
         <p><a href="https://medium.com/@hexagonalcrystal168">medium.com/@hexagonalcrystal168</a></p>
       </div>
     </section>
 
-    <section>
+    <section id="certificates">
+      <h2 style="color: var(--primary); margin-bottom: var(--spacing);">Licenses & Certificates</h2>
       <div class="card">
-        <h2>Licenses & Certificates</h2>
         <h3>Bosch</h3>
         <ul>
           <li>Basics Project Management - B</li>
@@ -158,7 +201,7 @@
           <li>Environment, Health and Safety</li>
           <li>General ISP rules for associates</li>
         </ul>
-        <h3>Other Certificates</h3>
+        <h3 style="margin-top: var(--spacing);">Other Certificates</h3>
         <ul>
           <li>Apple Search Ads Course by SearchAds.com</li>
           <li>ASO Course by MobileAction</li>
@@ -166,9 +209,9 @@
       </div>
     </section>
 
-    <section>
+    <section id="skills">
+      <h2 style="color: var(--primary); margin-bottom: var(--spacing);">Skills</h2>
       <div class="card">
-        <h2>Skills</h2>
         <ul>
           <li>C++ (Fundamentals of Computer Programming)</li>
           <li>C# (Unity game development)</li>
@@ -180,14 +223,14 @@
           <li>Ubuntu</li>
           <li>SAP</li>
           <li>In-STEP Blue</li>
-          <li>Agile and Waterfall Project Management</li>
+          <li>Agile & Waterfall Project Management</li>
         </ul>
       </div>
     </section>
 
-    <section>
+    <section id="hobbies">
+      <h2 style="color: var(--primary); margin-bottom: var(--spacing);">Hobbies</h2>
       <div class="card">
-        <h2>Hobbies</h2>
         <ul>
           <li>Composing music with classical guitar</li>
           <li>Basketball</li>
@@ -197,7 +240,6 @@
         </ul>
       </div>
     </section>
-
   </div>
 </body>
 </html>
