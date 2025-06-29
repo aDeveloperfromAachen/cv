@@ -93,6 +93,19 @@
       border-radius: var(--radius);
       margin-bottom: 10px;
     }
+    /* Uniform sizing for all project cards */
+    .card-grid .card {
+      display: flex;
+      flex-direction: column;
+    }
+    .card-grid .card img {
+      height: 150px;
+      object-fit: cover;
+      margin-bottom: var(--spacing);
+    }
+    .card-grid .card p {
+      flex-grow: 1;
+    }
     .coming {
       font-style: italic;
       color: var(--muted);
@@ -146,8 +159,8 @@
           <h3>Kea Interactive</h3>
           <img src="keainteractive.jpg" alt="Kea Interactive Logo">
           <p>
-            <a href="https://kea-interactive.ghost.io/">Website</a> | 
-            <a href="https://linktr.ee/keainteractive">Games & Social</a> | 
+            <a href="https://kea-interactive.ghost.io/">Website</a> |
+            <a href="https://linktr.ee/keainteractive">Games & Social</a> |
             <a href="https://store.steampowered.com/app/3812540/Mobile_Phone_Shop_Simulator/">Upcoming Games</a>
           </p>
         </div>
@@ -184,7 +197,6 @@
             <li>Student Dashboard</li>
           </ul>
         </div>
-
       </div>
     </section>
 
@@ -229,33 +241,37 @@
 
     <section id="skills">
       <h2 style="color: var(--primary); margin-bottom: var(--spacing);">Skills</h2>
-      <div class="card">
-        <ul>
-          <li>C++ (Fundamentals of Computer Programming)</li>
-          <li>C# (Unity game development)</li>
-          <li>Autodesk Inventor</li>
-          <li>Siemens NX</li>
-          <li>Technical Drawing</li>
-          <li>Microsoft Office</li>
-          <li>Kali Linux</li>
-          <li>Ubuntu</li>
-          <li>SAP</li>
-          <li>In-STEP Blue</li>
-          <li>Agile & Waterfall Project Management</li>
-        </ul>
+      <div class="card-grid">
+        <div class="card">
+          <ul>
+            <li>C++ (Fundamentals of Computer Programming)</li>
+            <li>C# (Unity game development)</li>
+            <li>Autodesk Inventor</li>
+            <li>Siemens NX</li>
+            <li>Technical Drawing</li>
+            <li>Microsoft Office</li>
+            <li>Kali Linux</li>
+            <li>Ubuntu</li>
+            <li>SAP</li>
+            <li>In-STEP Blue</li>
+            <li>Agile & Waterfall Project Management</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <section id="hobbies">
       <h2 style="color: var(--primary); margin-bottom: var(--spacing);">Hobbies</h2>
-      <div class="card">
-        <ul>
-          <li>Composing music with classical guitar</li>
-          <li>Basketball</li>
-          <li>Martial Arts</li>
-          <li>Cyber Security</li>
-          <li>Game Development</li>
-        </ul>
+      <div class="card-grid">
+        <div class="card">
+          <ul>
+            <li>Composing music with classical guitar</li>
+            <li>Basketball</li>
+            <li>Martial Arts</li>
+            <li>Cyber Security</li>
+            <li>Game Development</li>
+          </ul>
+        </div>
       </div>
     </section>
   </div>
