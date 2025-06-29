@@ -1,154 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Selahaddin Alperen Manap</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #f0f2f5;
+      --card: #ffffff;
+      --primary: #256d85;
+      --text: #333333;
+    }
     body {
-      background-color: #f4f4f4;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #2c3e50;
-      margin: 40px;
-      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
     }
-
-    h1, h2, h3 {
-      color: #1a252f;
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
     }
-
+    header {
+      text-align: center;
+      padding: 40px 0;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      color: var(--primary);
+    }
+    header p {
+      margin: 5px 0;
+      color: var(--primary);
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .card h2 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+    ul {
+      padding-left: 20px;
+    }
     a {
-      color: #0077cc;
+      color: var(--primary);
       text-decoration: none;
+      font-weight: 600;
     }
-
     a:hover {
       text-decoration: underline;
     }
-
-    hr {
-      border: none;
-      border-top: 1px solid #ccc;
-      margin: 30px 0;
-    }
-
-    ul {
-      list-style-type: circle;
-      padding-left: 20px;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      margin: 10px 0;
-    }
-
-    .project img {
-      max-width: 300px;
-    }
   </style>
 </head>
-
 <body>
+  <div class="container">
+    <header>
+      <h1>Selahaddin Alperen MANAP</h1>
+      <p>Smart Start Project Engineer @ Bosch ATMO-8</p>
+      <p>Mechanical Engineering Student @ Eskişehir Osmangazi University</p>
+      <p>Dynamic & versatile professional experienced in project management, game and web development.</p>
+    </header>
 
-  <h1>Selahaddin Alperen MANAP</h1>
-  <p><em>Smart Start Project Engineer @ Bosch ATMO-8</em></p>
-  <p><em>Mechanical Engineering Student @ Eskişehir Osmangazi University</em></p>
-  <p>Dynamic & versatile professional with strong communication skills and experience ranging from project management to game and web development. A keen planner & implementer with a focus on special machinery process management.</p>
+    <section>
+      <div class="card">
+        <h2>Projects</h2>
+        <div class="project-grid">
+          <div>
+            <h3>Mig-21 Fishbed Cirit Pylon</h3>
+            <img src="mig21.png" alt="Mig-21">
+            <p>We integrated Cirit missile (Aselsan) into the Mig-21 to solve balance issues during the Vietnamese Civil War.</p>
+          </div>
+          <div>
+            <h3>Kea Interactive Co.</h3>
+            <p>One-man mobile app and indie game development. <!-- Google Play link placeholder --></p>
+          </div>
+          <div>
+            <h3>App Store – Selahaddin Alperen Manap</h3>
+            <p>Independent game and app projects published under this name.</p>
+          </div>
+          <div>
+            <h3><a href="https://www.etsy.com/shop/templatesbyalperen?ref=dashboard-header#about">templatesbyalperen</a></h3>
+            <img src="data.jpg" alt="Templates Preview">
+            <p>Helping students and small businesses with productivity tools.</p>
+            <ul>
+              <li>Complete Student Package</li>
+              <li>Productivity Hack</li>
+              <li>Project Manager OS</li>
+              <li>Habit Tracker Pro</li>
+              <li>Financial Tracker Pro</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Kea Interactive</h3>
+            <p>
+              <a href="https://kea-interactive.ghost.io/">Website</a> |
+              <a href="https://linktr.ee/keainteractive">Games & Social Media</a> |
+              <a href="https://store.steampowered.com/app/3812540/Mobile_Phone_Shop_Simulator/">Upcoming Games</a>
+            </p>
+          </div>
+          <div>
+            <h3>Cost Reduction in Special Machinery Design</h3>
+            <p>On going...</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <hr>
+    <section>
+      <div class="card">
+        <h2>My Blog</h2>
+        <p><a href="https://medium.com/@hexagonalcrystal168">medium.com/@hexagonalcrystal168</a></p>
+      </div>
+    </section>
 
-  <h2>Projects</h2>
+    <section>
+      <div class="card">
+        <h2>Licenses & Certificates</h2>
+        <h3>Bosch</h3>
+        <ul>
+          <li>Basics Project Management - B</li>
+          <li>Awareness for Data & AI</li>
+          <li>Grinding Technique Basic</li>
+          <li>Leading Smart Work</li>
+          <li>Project Management Fundamentals</li>
+          <li>Anti-Corruption: Gratuities in Dealings with Third Parties</li>
+          <li>Antitrust Law</li>
+          <li>Code of Business Conduct</li>
+          <li>Data Protection and Information Security</li>
+          <li>Dealing with Classified Information</li>
+          <li>Environmental Protection Training</li>
+          <li>Export Control</li>
+          <li>Product Development Code</li>
+          <li>Product Safety and Product Liability</li>
+          <li>Software License Management</li>
+          <li>Associate awareness Environment, Health and Safety</li>
+          <li>Environment, Health and Safety</li>
+          <li>General ISP rules for associates</li>
+        </ul>
+        <h3>Other Certificates</h3>
+        <ul>
+          <li>Apple Search Ads Course by SearchAds.com</li>
+          <li>ASO Course by MobileAction</li>
+        </ul>
+      </div>
+    </section>
 
-  <div class="project">
-    <ul>
-      <li>Mig-21 Fishbed Cirit Pylon</li>
-    </ul>
-    <img src="mig21.png" alt="Mig-21">
-    <img src="1.png" alt="Mig-21 Detail 1">
-    <img src="2.png" alt="Mig-21 Detail 2">
-    <p>We integrated Cirit missile (by Aselsan) into the Mig-21 Fishbed to address its balance issues during the Vietnamese Civil War.</p>
+    <section>
+      <div class="card">
+        <h2>Skills</h2>
+        <ul>
+          <li>C++ (Fundamentals of Computer Programming)</li>
+          <li>C# (Unity game development)</li>
+          <li>Autodesk Inventor</li>
+          <li>Siemens NX</li>
+          <li>Technical Drawing</li>
+          <li>Microsoft Office</li>
+          <li>Kali Linux</li>
+          <li>Ubuntu</li>
+          <li>SAP</li>
+          <li>In-STEP Blue</li>
+          <li>Agile and Waterfall Project Management</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <h2>Hobbies</h2>
+        <ul>
+          <li>Composing music with classical guitar</li>
+          <li>Basketball</li>
+          <li>Martial Arts</li>
+          <li>Cyber Security</li>
+          <li>Game Development</li>
+        </ul>
+      </div>
+    </section>
+
   </div>
-
-  <hr>
-
-  <div class="project">
-    <ul>
-      <li>Kea Interactive Co.</li>
-    </ul>
-    <!-- Google Play link will be added later -->
-    <p>One-man mobile application and indie game development company.</p>
-  </div>
-
-  <hr>
-
-  <div class="project">
-    <ul>
-      <li>App Store – Selahaddin Alperen Manap</li>
-    </ul>
-    <p>Independent game and app projects published on App Store under this name.</p>
-  </div>
-
-  <hr>
-
-  <div class="project">
-    <ul>
-      <li><a href="https://www.etsy.com/shop/templatesbyalperen?ref=dashboard-header#about">templatesbyalperen</a></li>
-    </ul>
-    <img src="data.jpg" alt="Templates Preview">
-    <p>Passion project to help students and small businesses grow with productivity tools.</p>
-    <ol>
-      <li>Complete Student Package</li>
-      <li>Productivity Hack</li>
-      <li>Project Manager OS</li>
-      <li>Habit Tracker Pro</li>
-      <li>Financial Tracker Pro</li>
-    </ol>
-  </div>
-
-  <hr>
-
-  <div class="project">
-    <ul>
-      <li>Kea Interactive</li>
-      <li><a href="https://kea-interactive.ghost.io/">Website</a></li>
-      <li><a href="https://linktr.ee/keainteractive">Games and Social Media</a></li>
-      <li><a href="https://store.steampowered.com/app/3812540/Mobile_Phone_Shop_Simulator/">Upcoming Games</a></li>
-    </ul>
-    <p>Developing minimalist, charming indie games and tools with passion.</p>
-  </div>
-
-  <hr>
-
-  <ul>
-    <li>Cost Reduction in Special Machinery Design</li>
-  </ul>
-  <p>On going...</p>
-
-  <hr>
-
-  <ul>
-    <li><a href="https://medium.com/@hexagonalcrystal168">My Blog</a></li>
-  </ul>
-
-  <hr>
-
-  <h2>Licenses and Certificates</h2>
-  <h3>Bosch</h3>
-  <ul>
-    <li>Basics Project Management - B</li>
-    <li>Awareness for Data & AI</li>
-    <li>Grinding Technique Basic</li>
-    <li>Leading Smart Work</li>
-    <li>Project Management Fundamentals</li>
-    <li>Anti-Corruption: Gratuities in Dealings with Third Parties</li>
-    <li>Antitrust Law</li>
-    <li>Code of Business Conduct</li>
-    <li>Data Protection and Information Security</li>
-    <li>Dealing with Classified Information</li>
-    <li>Environmental Protection Training</li>
-    <li>Export Control</li>
-    <li>Product Development Code</li>
-    <li>Product Safety and Product Liability</li>
-    <li>Software License Management</li>
-    <li>Associate awareness Environment, Health and Safety</li>
-    <li>Environment, Health and Safety<
+</body>
+</html>
