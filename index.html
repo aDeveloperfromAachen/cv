@@ -2,136 +2,385 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Selahaddin Alperen Manap</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #eef2f3;
-      --card: #ffffff;
-      --primary: #256d85;
-      --text: #2c3e50;
-      --muted: #7f8c8d;
-      --radius: 8px;
-      --spacing: 20px;
+      --bg-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --bg-secondary: #f8fafc;
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --text-primary: #1a202c;
+      --text-secondary: #4a5568;
+      --text-muted: #718096;
+      --accent-1: #4299e1;
+      --accent-2: #38b2ac;
+      --accent-3: #ed8936;
+      --accent-4: #9f7aea;
+      --accent-5: #f56565;
+      --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+      --radius: 16px;
+      --spacing: 24px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
     }
-    .container {
-      width: 90%; max-width: 960px;
-      margin: auto;
-      padding: var(--spacing) 0;
+
+    /* Hero Section */
+    .hero {
+      background: var(--bg-primary);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
     }
-    header {
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--spacing);
       text-align: center;
-      padding-bottom: var(--spacing);
+      color: white;
+      position: relative;
+      z-index: 1;
     }
-    header h1 {
-      font-size: 2.8rem;
-      color: var(--primary);
-      margin-bottom: 5px;
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(45deg, #fff, #e2e8f0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeInUp 1s ease-out;
     }
-    header p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin: 2px 0;
+
+    .hero .subtitle {
+      font-size: 1.5rem;
+      font-weight: 300;
+      opacity: 0.9;
+      margin-bottom: 0.5rem;
+      animation: fadeInUp 1s ease-out 0.2s both;
     }
-    nav {
+
+    .hero .description {
+      font-size: 1.1rem;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+      animation: fadeInUp 1s ease-out 0.4s both;
+    }
+
+    .nav-pills {
       display: flex;
       justify-content: center;
-      gap: var(--spacing);
-      margin-top: var(--spacing);
+      flex-wrap: wrap;
+      gap: 1rem;
+      animation: fadeInUp 1s ease-out 0.6s both;
     }
-    nav a {
-      color: var(--primary);
+
+    .nav-pill {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      color: white;
       text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-pill:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem var(--spacing);
+    }
+
+    section {
+      margin-bottom: 5rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
       font-weight: 600;
-      font-size: 0.95rem;
-      position: relative;
+      text-align: center;
+      margin-bottom: 3rem;
+      background: linear-gradient(45deg, var(--accent-1), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    nav a::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 2px;
-      background: var(--primary);
-      transition: width .3s;
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-    }
-    nav a:hover::after { width: 100%; }
-    section { margin-bottom: calc(var(--spacing) * 1.5); }
+
+    /* Card Grids */
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: var(--spacing);
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
     }
+
     .card {
-      background: var(--card);
+      background: var(--card-bg);
       border-radius: var(--radius);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      padding: var(--spacing);
-      transition: transform .2s, box-shadow .2s;
+      box-shadow: var(--shadow);
+      padding: 2rem;
+      transition: all 0.4s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+      overflow: hidden;
     }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
     }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
     .card h3 {
-      margin-bottom: 10px;
-      color: var(--primary);
-      font-size: 1.2rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
     }
-    .card p { margin-bottom: 10px; }
+
+    .card p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
     .card img {
       width: 100%;
-      border-radius: var(--radius);
-      margin-bottom: 10px;
-    }
-    /* Uniform sizing for all project cards */
-    .card-grid .card {
-      display: flex;
-      flex-direction: column;
-    }
-    .card-grid .card img {
-      height: 150px;
+      height: 200px;
       object-fit: cover;
-      margin-bottom: var(--spacing);
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s ease;
     }
-    .card-grid .card p {
-      flex-grow: 1;
+
+    .card:hover img {
+      transform: scale(1.05);
     }
+
+    /* Project Cards with Colors */
+    .card:nth-child(1)::before { background: linear-gradient(90deg, var(--accent-1), var(--accent-2)); }
+    .card:nth-child(2)::before { background: linear-gradient(90deg, var(--accent-2), var(--accent-3)); }
+    .card:nth-child(3)::before { background: linear-gradient(90deg, var(--accent-3), var(--accent-4)); }
+    .card:nth-child(4)::before { background: linear-gradient(90deg, var(--accent-4), var(--accent-5)); }
+    .card:nth-child(5)::before { background: linear-gradient(90deg, var(--accent-5), var(--accent-1)); }
+    .card:nth-child(6)::before { background: linear-gradient(90deg, var(--accent-1), var(--accent-3)); }
+    .card:nth-child(7)::before { background: linear-gradient(90deg, var(--accent-2), var(--accent-4)); }
+
+    /* Links */
+    .card a {
+      color: var(--accent-1);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .card a:hover {
+      color: var(--accent-2);
+    }
+
+    /* Lists */
+    .card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .card li {
+      padding: 0.5rem 0;
+      color: var(--text-secondary);
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .card li::before {
+      content: '●';
+      position: absolute;
+      left: 0;
+      color: var(--accent-1);
+      font-weight: bold;
+    }
+
+    /* Special Styling for Different Sections */
+    #blog .card {
+      background: linear-gradient(135deg, rgba(66, 153, 225, 0.1), rgba(56, 178, 172, 0.1));
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    #blog .card a {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    /* Certificates Section */
+    #certificates .card {
+      background: linear-gradient(135deg, rgba(159, 122, 234, 0.1), rgba(237, 137, 54, 0.1));
+    }
+
+    #certificates h3 {
+      color: var(--accent-4);
+      border-bottom: 2px solid var(--accent-4);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Skills Section */
+    #skills .card {
+      background: linear-gradient(135deg, rgba(56, 178, 172, 0.1), rgba(245, 101, 101, 0.1));
+    }
+
+    #skills li::before {
+      color: var(--accent-2);
+    }
+
+    /* Hobbies Section */
+    #hobbies .card {
+      background: linear-gradient(135deg, rgba(237, 137, 54, 0.1), rgba(66, 153, 225, 0.1));
+    }
+
+    #hobbies li::before {
+      color: var(--accent-3);
+    }
+
+    /* Coming Soon Badge */
     .coming {
-      font-style: italic;
-      color: var(--muted);
-      font-size: 0.9rem;
+      background: linear-gradient(45deg, var(--accent-3), var(--accent-4));
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: inline-block;
+      margin-top: 0.5rem;
     }
-    ul { list-style: inside circle; margin-left: 10px; }
-    a { color: var(--primary); }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .card:nth-child(even) {
+      animation-delay: 0.1s;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 80vh;
+        padding: 2rem 0;
+      }
+
+      .container {
+        padding: 2rem 1rem;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .nav-pills {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+
+    /* Scroll Behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Selection Color */
+    ::selection {
+      background: var(--accent-1);
+      color: white;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
       <h1>Selahaddin Alperen MANAP</h1>
-      <p>Logistics Engineer @ Bosch BMG8-TR</p>
-      <p>Mechanical Engineer</p>
-      <nav>
-        <a href="#projects">Projects</a>
-        <a href="#blog">Blog</a>
-        <a href="#certificates">Certificates</a>
-        <a href="#skills">Skills</a>
-        <a href="#hobbies">Hobbies</a>
+      <p class="subtitle">Logistics Engineer @ Bosch BMG8-TR</p>
+      <p class="description">Mechanical Engineer</p>
+      <nav class="nav-pills">
+        <a href="#projects" class="nav-pill">Projects</a>
+        <a href="#blog" class="nav-pill">Blog</a>
+        <a href="#certificates" class="nav-pill">Certificates</a>
+        <a href="#skills" class="nav-pill">Skills</a>
+        <a href="#hobbies" class="nav-pill">Hobbies</a>
       </nav>
-    </header>
+    </div>
+  </section>
 
+  <div class="container">
     <section id="projects">
-      <h2 style="color: var(--primary); margin-bottom: var(--spacing);">Projects</h2>
+      <h2 class="section-title">Featured Projects</h2>
       <div class="card-grid">
         <!-- Mig-21 -->
         <div class="card">
@@ -144,7 +393,7 @@
         <div class="card">
           <h3>Turkish Technic Hackathon 2023</h3>
           <img src="technic.jpg" alt="Turkish Technic Hackathon 2023">
-          <p>Awarded 3rd place at the Turkish Technic Hackathon in 2023.</p>
+          <p>🏆 Awarded 3rd place at the Turkish Technic Hackathon in 2023.</p>
         </div>
 
         <!-- Cost Reduction -->
@@ -159,9 +408,9 @@
           <h3>Kea Interactive</h3>
           <img src="keainteractive.jpg" alt="Kea Interactive Logo">
           <p>
-            <a href="https://kea-interactive.ghost.io/">Website</a> |
-            <a href="https://linktr.ee/keainteractive">Games & Social</a> |
-            <a href="https://store.steampowered.com/app/3812540/Mobile_Phone_Shop_Simulator/">Upcoming Games</a>
+            <a href="https://kea-interactive.ghost.io/">🌐 Website</a> |
+            <a href="https://linktr.ee/keainteractive">🎮 Games & Social</a> |
+            <a href="https://store.steampowered.com/app/3812540/Mobile_Phone_Shop_Simulator/">🚀 Upcoming Games</a>
           </p>
         </div>
 
@@ -169,15 +418,15 @@
         <div class="card">
           <h3>Kea Interactive Co.</h3>
           <img src="gp.png" alt="Google Play">
-          <p>One-man mobile app & indie game studio.</p>
-          <p class="coming">Google Play link coming soon.</p>
+          <p>One-man mobile app & indie game studio creating engaging experiences for mobile platforms.</p>
+          <span class="coming">Google Play link coming soon</span>
         </div>
 
         <!-- App Store -->
         <div class="card">
           <h3>App Store</h3>
           <img src="appstore.jpg" alt="App Store">
-          <p>Published under Selahaddin Alperen Manap account.</p>
+          <p>Published under Selahaddin Alperen Manap account with innovative mobile applications.</p>
         </div>
 
         <!-- Magnificent NotionWorks -->
@@ -185,8 +434,8 @@
           <h3>Magnificent NotionWorks</h3>
           <img src="etsy.png" alt="Etsy Logo">
           <p>
-            <a href="https://www.etsy.com/shop/templatesbyalperen?ref=dashboard-header#about">templatesbyalperen</a><br>
-            <a href="https://magnificentnotionworkstr.lemonsqueezy.com/">Magnificent NotionWorks TR</a>
+            <a href="https://www.etsy.com/shop/templatesbyalperen?ref=dashboard-header#about">🛍️ templatesbyalperen</a><br>
+            <a href="https://magnificentnotionworkstr.lemonsqueezy.com/">🍋 Magnificent NotionWorks TR</a>
           </p>
           <p>Helping students & small businesses with productivity tools.</p>
           <ul>
@@ -201,16 +450,17 @@
     </section>
 
     <section id="blog">
-      <h2 style="color: var(--primary); margin-bottom: var(--spacing);">My Blog</h2>
+      <h2 class="section-title">My Blog</h2>
       <div class="card">
+        <p>📝 Follow my thoughts and insights on technology, engineering, and game development</p>
         <p><a href="https://medium.com/@hexagonalcrystal168">medium.com/@hexagonalcrystal168</a></p>
       </div>
     </section>
 
     <section id="certificates">
-      <h2 style="color: var(--primary); margin-bottom: var(--spacing);">Licenses & Certificates</h2>
+      <h2 class="section-title">Licenses & Certificates</h2>
       <div class="card">
-        <h3>Bosch</h3>
+        <h3>Bosch Certifications</h3>
         <ul>
           <li>Basics Project Management - B</li>
           <li>Awareness for Data & AI</li>
@@ -231,7 +481,7 @@
           <li>Environment, Health and Safety</li>
           <li>General ISP rules for associates</li>
         </ul>
-        <h3 style="margin-top: var(--spacing);">Other Certificates</h3>
+        <h3>External Certifications</h3>
         <ul>
           <li>Apple Search Ads Course by SearchAds.com</li>
           <li>ASO Course by MobileAction</li>
@@ -240,38 +490,34 @@
     </section>
 
     <section id="skills">
-      <h2 style="color: var(--primary); margin-bottom: var(--spacing);">Skills</h2>
-      <div class="card-grid">
-        <div class="card">
-          <ul>
-            <li>C++ (Fundamentals of Computer Programming)</li>
-            <li>C# (Unity game development)</li>
-            <li>Autodesk Inventor</li>
-            <li>Siemens NX</li>
-            <li>Technical Drawing</li>
-            <li>Microsoft Office</li>
-            <li>Kali Linux</li>
-            <li>Ubuntu</li>
-            <li>SAP</li>
-            <li>In-STEP Blue</li>
-            <li>Agile & Waterfall Project Management</li>
-          </ul>
-        </div>
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="card">
+        <ul>
+          <li>C++ (Fundamentals of Computer Programming)</li>
+          <li>C# (Unity game development)</li>
+          <li>Autodesk Inventor</li>
+          <li>Siemens NX</li>
+          <li>Technical Drawing</li>
+          <li>Microsoft Office</li>
+          <li>Kali Linux</li>
+          <li>Ubuntu</li>
+          <li>SAP</li>
+          <li>In-STEP Blue</li>
+          <li>Agile & Waterfall Project Management</li>
+        </ul>
       </div>
     </section>
 
     <section id="hobbies">
-      <h2 style="color: var(--primary); margin-bottom: var(--spacing);">Hobbies</h2>
-      <div class="card-grid">
-        <div class="card">
-          <ul>
-            <li>Composing music with classical guitar</li>
-            <li>Basketball</li>
-            <li>Martial Arts</li>
-            <li>Cyber Security</li>
-            <li>Game Development</li>
-          </ul>
-        </div>
+      <h2 class="section-title">Hobbies & Interests</h2>
+      <div class="card">
+        <ul>
+          <li>🎸 Composing music with classical guitar</li>
+          <li>🏀 Basketball</li>
+          <li>🥋 Martial Arts</li>
+          <li>🔒 Cyber Security</li>
+          <li>🎮 Game Development</li>
+        </ul>
       </div>
     </section>
   </div>
