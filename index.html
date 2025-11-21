@@ -1,525 +1,419 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Selahaddin Alperen Manap</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --bg-secondary: #f8fafc;
-      --card-bg: rgba(255, 255, 255, 0.95);
-      --text-primary: #1a202c;
-      --text-secondary: #4a5568;
-      --text-muted: #718096;
-      --accent-1: #4299e1;
-      --accent-2: #38b2ac;
-      --accent-3: #ed8936;
-      --accent-4: #9f7aea;
-      --accent-5: #f56565;
-      --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
-      --radius: 16px;
-      --spacing: 24px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selahaddin Alperen Manap - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Minimalistic CSS Reset and Variables */
+        :root {
+            --bg-color: #ffffff;
+            --bg-secondary: #f9fafb;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --accent-color: #2563eb; /* A nice blue */
+            --border-color: #e5e7eb;
+            --spacing-unit: 1.5rem;
+            --max-width: 900px; /* Narrower measure for better readability */
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg-secondary);
-      color: var(--text-primary);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-weight: 400;
+        }
 
-    /* Hero Section */
-    .hero {
-      background: var(--bg-primary);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-    }
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
-      opacity: 0.3;
-    }
+        a:hover {
+            opacity: 0.8;
+        }
 
-    .hero-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 var(--spacing);
-      text-align: center;
-      color: white;
-      position: relative;
-      z-index: 1;
-    }
+        /* Layout */
+        header {
+            padding: var(--spacing-unit) 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            z-index: 100;
+        }
 
-    .hero h1 {
-      font-size: clamp(3rem, 8vw, 5rem);
-      font-weight: 700;
-      margin-bottom: 1rem;
-      background: linear-gradient(45deg, #fff, #e2e8f0);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: fadeInUp 1s ease-out;
-    }
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
 
-    .hero .subtitle {
-      font-size: 1.5rem;
-      font-weight: 300;
-      opacity: 0.9;
-      margin-bottom: 0.5rem;
-      animation: fadeInUp 1s ease-out 0.2s both;
-    }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .hero .description {
-      font-size: 1.1rem;
-      opacity: 0.8;
-      margin-bottom: 2rem;
-      animation: fadeInUp 1s ease-out 0.4s both;
-    }
+        .nav-logo {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+        }
 
-    .nav-pills {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      animation: fadeInUp 1s ease-out 0.6s both;
-    }
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
 
-    .nav-pill {
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-      color: white;
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 50px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
+        .nav-links a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
 
-    .nav-pill:hover {
-      background: rgba(255, 255, 255, 0.3);
-      transform: translateY(-2px);
-    }
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
 
-    /* Main Content */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 4rem var(--spacing);
-    }
+        main {
+            padding: 4rem 0;
+        }
 
-    section {
-      margin-bottom: 5rem;
-    }
+        section {
+            margin-bottom: 6rem;
+        }
 
-    .section-title {
-      font-size: 2.5rem;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 3rem;
-      background: linear-gradient(45deg, var(--accent-1), var(--accent-2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+        /* Typography */
+        h1, h2, h3 {
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
 
-    /* Card Grids */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-    }
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
 
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 2rem;
-      transition: all 0.4s ease;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      position: relative;
-      overflow: hidden;
-    }
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
 
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
 
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-hover);
-    }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
 
-    .card:hover::before {
-      opacity: 1;
-    }
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
 
-    .card h3 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: var(--text-primary);
-    }
+        /* Grid for Projects */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
 
-    .card p {
-      color: var(--text-secondary);
-      margin-bottom: 1rem;
-      line-height: 1.6;
-    }
+        .card {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
 
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 12px;
-      margin-bottom: 1.5rem;
-      transition: transform 0.3s ease;
-    }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
 
-    .card:hover img {
-      transform: scale(1.05);
-    }
+        .card-content {
+            padding: 1.5rem;
+        }
 
-    /* Project Cards with Colors */
-    .card:nth-child(1)::before { background: linear-gradient(90deg, var(--accent-1), var(--accent-2)); }
-    .card:nth-child(2)::before { background: linear-gradient(90deg, var(--accent-2), var(--accent-3)); }
-    .card:nth-child(3)::before { background: linear-gradient(90deg, var(--accent-3), var(--accent-4)); }
-    .card:nth-child(4)::before { background: linear-gradient(90deg, var(--accent-4), var(--accent-5)); }
-    .card:nth-child(5)::before { background: linear-gradient(90deg, var(--accent-5), var(--accent-1)); }
-    .card:nth-child(6)::before { background: linear-gradient(90deg, var(--accent-1), var(--accent-3)); }
-    .card:nth-child(7)::before { background: linear-gradient(90deg, var(--accent-2), var(--accent-4)); }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+        }
 
-    /* Links */
-    .card a {
-      color: var(--accent-1);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
+        .card small {
+            color: var(--accent-color);
+        }
 
-    .card a:hover {
-      color: var(--accent-2);
-    }
+        /* Lists styling */
+        ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
 
-    /* Lists */
-    .card ul {
-      list-style: none;
-      padding: 0;
-    }
+        li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: flex-start;
+        }
 
-    .card li {
-      padding: 0.5rem 0;
-      color: var(--text-secondary);
-      position: relative;
-      padding-left: 1.5rem;
-    }
+        li::before {
+            content: "•";
+            color: var(--accent-color);
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
 
-    .card li::before {
-      content: '●';
-      position: absolute;
-      left: 0;
-      color: var(--accent-1);
-      font-weight: bold;
-    }
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 4rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
 
-    /* Special Styling for Different Sections */
-    #blog .card {
-      background: linear-gradient(135deg, rgba(66, 153, 225, 0.1), rgba(56, 178, 172, 0.1));
-      text-align: center;
-      padding: 3rem 2rem;
-    }
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .nav-links { gap: 1rem; }
+        }
 
-    #blog .card a {
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-
-    /* Certificates Section */
-    #certificates .card {
-      background: linear-gradient(135deg, rgba(159, 122, 234, 0.1), rgba(237, 137, 54, 0.1));
-    }
-
-    #certificates h3 {
-      color: var(--accent-4);
-      border-bottom: 2px solid var(--accent-4);
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    /* Skills Section */
-    #skills .card {
-      background: linear-gradient(135deg, rgba(56, 178, 172, 0.1), rgba(245, 101, 101, 0.1));
-    }
-
-    #skills li::before {
-      color: var(--accent-2);
-    }
-
-    /* Hobbies Section */
-    #hobbies .card {
-      background: linear-gradient(135deg, rgba(237, 137, 54, 0.1), rgba(66, 153, 225, 0.1));
-    }
-
-    #hobbies li::before {
-      color: var(--accent-3);
-    }
-
-    /* Coming Soon Badge */
-    .coming {
-      background: linear-gradient(45deg, var(--accent-3), var(--accent-4));
-      color: white;
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      display: inline-block;
-      margin-top: 0.5rem;
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .card {
-      animation: fadeInUp 0.6s ease-out;
-    }
-
-    .card:nth-child(even) {
-      animation-delay: 0.1s;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .hero {
-        min-height: 80vh;
-        padding: 2rem 0;
-      }
-
-      .container {
-        padding: 2rem 1rem;
-      }
-
-      .card-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .nav-pills {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .section-title {
-        font-size: 2rem;
-      }
-    }
-
-    /* Scroll Behavior */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* Selection Color */
-    ::selection {
-      background: var(--accent-1);
-      color: white;
-    }
-  </style>
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .nav-links {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+                gap: 1rem;
+            }
+            .nav-links a {
+                white-space: nowrap;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Selahaddin Alperen MANAP</h1>
-      <p class="subtitle">Logistics Engineer @ Bosch BMG-8TR</p>
-      <p class="description">Mechanical Engineer</p>
-      <nav class="nav-pills">
-        <a href="#projects" class="nav-pill">Projects</a>
-        <a href="#blog" class="nav-pill">Blog</a>
-        <a href="#certificates" class="nav-pill">Certificates</a>
-        <a href="#skills" class="nav-pill">Skills</a>
-        <a href="#hobbies" class="nav-pill">Hobbies</a>
-      </nav>
-    </div>
-  </section>
 
-  <div class="container">
-    <section id="projects">
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="card-grid">
-        <!-- Mig-21 -->
-        <div class="card">
-          <h3>Mig-21 Fishbed Cirit Pylon</h3>
-          <img src="mig21.png" alt="Mig-21 Fishbed">
-          <p>Integrated Cirit missile (Aselsan) into Mig-21 to solve balance issues during the Vietnamese Civil War.</p>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="nav-logo">Selahaddin Alperen Manap</div>
+                <div class="nav-links">
+                    <a href="#projects">Projects</a>
+                    <a href="#blog">Blog</a>
+                    <a href="#certificates">Certificates</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#hobbies">Hobbies</a>
+                </div>
+            </nav>
         </div>
+    </header>
 
-        <!-- Technic Hackathon -->
-        <div class="card">
-          <h3>Turkish Technic Hackathon 2023</h3>
-          <img src="technic.jpg" alt="Turkish Technic Hackathon 2023">
-          <p>🏆 Awarded 3rd place at the Turkish Technic Hackathon in 2023.</p>
+    <main class="container">
+        <section id="hero">
+            <h1>Selahaddin Alperen MANAP</h1>
+            <p class="subtitle">Logistics Engineer @ Bosch BMG-8TR</p>
+            <p class="subtitle">Mechanical Engineer</p>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="grid">
+                <!-- Projects content here -->
+                <div class="card">
+                    <img src="mig21.png" alt="Mig-21 Fishbed">
+                    <div class="card-content">
+                        <h3>Mig-21 Fishbed Cirit Pylon</h3>
+                        <p>Integrated Cirit missile (Aselsan) into Mig-21 to solve balance issues during the Vietnamese Civil War.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="technic.jpg" alt="Turkish Technic Hackathon 2023">
+                    <div class="card-content">
+                        <h3>Turkish Technic Hackathon 2023</h3>
+                        <p>🏆 Awarded 3rd place at the Turkish Technic Hackathon in 2023.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="specialmachinery.jpg" alt="Special Machinery Design">
+                    <div class="card-content">
+                        <h3>Cost Reduction in Special Machinery Design</h3>
+                        <p>In 2024, I wrote my undergraduate thesis focusing on cost reduction for chassis components in special machinery manufacturing.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="keainteractive.jpg" alt="Kea Interactive Logo">
+                    <div class="card-content">
+                        <h3>Kea Interactive</h3>
+                        <p>
+                            <a href="https://kea-interactive.ghost.io/">🌐 Website</a><br>
+                            <a href="https://linktr.ee/keainteractive">🎮 Games & Social</a><br>
+                            <a href="https://store.steampowered.com/app/3812540/Mobile_Phone_Shop_Simulator/">🚀 Upcoming Games</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="gp.png" alt="Google Play">
+                    <div class="card-content">
+                        <h3>Kea Interactive Co.</h3>
+                        <p>One-man mobile app & indie game studio creating engaging experiences for mobile platforms.</p>
+                        <small>Google Play link coming soon</small>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="appstore.jpg" alt="App Store">
+                    <div class="card-content">
+                        <h3>App Store</h3>
+                        <p>Published under Selahaddin Alperen Manap account with innovative mobile applications.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                     <img src="etsy.png" alt="Etsy Logo">
+                     <div class="card-content">
+                        <h3>Magnificent NotionWorks</h3>
+                        <p>
+                            <a href="https://www.etsy.com/shop/templatesbyalperen?ref=dashboard-header#about">🛍️ templatesbyalperen</a><br>
+                            <a href="https://magnificentnotionworkstr.lemonsqueezy.com/">🍋 Magnificent NotionWorks TR</a>
+                        </p>
+                        <p>Helping students & small businesses with productivity tools.</p>
+                        <ul>
+                            <li>Complete Student Package</li>
+                            <li>Productivity Hack</li>
+                            <li>Bright School Planner</li>
+                            <li>Cosy School Planner</li>
+                            <li>Student Dashboard</li>
+                        </ul>
+                     </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="blog">
+            <h2>My Blog</h2>
+            <p>📝 Follow my thoughts and insights on technology, engineering, and game development</p>
+            <a href="https://medium.com/@hexagonalcrystal168" style="font-weight: 500; font-size: 1.1rem;">Read on Medium →</a>
+        </section>
+
+        <section id="certificates">
+            <h2>Licenses & Certificates</h2>
+            <div class="grid">
+                 <div class="card">
+                    <div class="card-content">
+                        <h3>Bosch Certifications</h3>
+                        <ul>
+                          <li>Basics Project Management - B</li>
+                          <li>Awareness for Data & AI</li>
+                          <li>Grinding Technique Basic</li>
+                          <li>Leading Smart Work</li>
+                          <li>Project Management Fundamentals</li>
+                          <li>Anti-Corruption: Gratuities in Dealings with Third Parties</li>
+                          <li>Antitrust Law</li>
+                          <li>Code of Business Conduct</li>
+                          <li>Data Protection and Information Security</li>
+                          <li>Dealing with Classified Information</li>
+                          <li>Environmental Protection Training</li>
+                          <li>Export Control</li>
+                          <li>Product Development Code</li>
+                          <li>Product Safety and Product Liability</li>
+                          <li>Software License Management</li>
+                          <li>Associate awareness Environment, Health and Safety</li>
+                          <li>Environment, Health and Safety</li>
+                          <li>General ISP rules for associates</li>
+                        </ul>
+                    </div>
+                 </div>
+                 <div class="card">
+                    <div class="card-content">
+                        <h3>External Certifications</h3>
+                        <ul>
+                          <li>Apple Search Ads Course by SearchAds.com</li>
+                          <li>ASO Course by MobileAction</li>
+                        </ul>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="card">
+                <div class="card-content">
+                    <ul>
+                      <li>C++ (Fundamentals of Computer Programming)</li>
+                      <li>C# (Unity game development)</li>
+                      <li>Autodesk Inventor</li>
+                      <li>Siemens NX</li>
+                      <li>Technical Drawing</li>
+                      <li>Microsoft Office</li>
+                      <li>Kali Linux</li>
+                      <li>Ubuntu</li>
+                      <li>SAP</li>
+                      <li>In-STEP Blue</li>
+                      <li>Agile & Waterfall Project Management</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="hobbies">
+            <h2>Hobbies & Interests</h2>
+            <div class="card">
+                <div class="card-content">
+                    <ul>
+                      <li>🎸 Composing music with classical guitar</li>
+                      <li>🏀 Basketball</li>
+                      <li>🥋 Martial Arts</li>
+                      <li>🔒 Cyber Security</li>
+                      <li>🎮 Game Development</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Selahaddin Alperen Manap. All rights reserved.</p>
         </div>
+    </footer>
 
-        <!-- Cost Reduction -->
-        <div class="card">
-          <h3>Cost Reduction in Special Machinery Design</h3>
-          <img src="specialmachinery.jpg" alt="Special Machinery Design">
-          <p>In 2024, I wrote my undergraduate thesis focusing on cost reduction for chassis components in special machinery manufacturing.</p>
-        </div>
-
-        <!-- Kea Interactive -->
-        <div class="card">
-          <h3>Kea Interactive</h3>
-          <img src="keainteractive.jpg" alt="Kea Interactive Logo">
-          <p>
-            <a href="https://kea-interactive.ghost.io/">🌐 Website</a> |
-            <a href="https://linktr.ee/keainteractive">🎮 Games & Social</a> |
-            <a href="https://store.steampowered.com/app/3812540/Mobile_Phone_Shop_Simulator/">🚀 Upcoming Games</a>
-          </p>
-        </div>
-
-        <!-- Google Play -->
-        <div class="card">
-          <h3>Kea Interactive Co.</h3>
-          <img src="gp.png" alt="Google Play">
-          <p>One-man mobile app & indie game studio creating engaging experiences for mobile platforms.</p>
-          <span class="coming">Google Play link coming soon</span>
-        </div>
-
-        <!-- App Store -->
-        <div class="card">
-          <h3>App Store</h3>
-          <img src="appstore.jpg" alt="App Store">
-          <p>Published under Selahaddin Alperen Manap account with innovative mobile applications.</p>
-        </div>
-
-        <!-- Magnificent NotionWorks -->
-        <div class="card">
-          <h3>Magnificent NotionWorks</h3>
-          <img src="etsy.png" alt="Etsy Logo">
-          <p>
-            <a href="https://www.etsy.com/shop/templatesbyalperen?ref=dashboard-header#about">🛍️ templatesbyalperen</a><br>
-            <a href="https://magnificentnotionworkstr.lemonsqueezy.com/">🍋 Magnificent NotionWorks TR</a>
-          </p>
-          <p>Helping students & small businesses with productivity tools.</p>
-          <ul>
-            <li>Complete Student Package</li>
-            <li>Productivity Hack</li>
-            <li>Bright School Planner</li>
-            <li>Cosy School Planner</li>
-            <li>Student Dashboard</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="blog">
-      <h2 class="section-title">My Blog</h2>
-      <div class="card">
-        <p>📝 Follow my thoughts and insights on technology, engineering, and game development</p>
-        <p><a href="https://medium.com/@hexagonalcrystal168">medium.com/@hexagonalcrystal168</a></p>
-      </div>
-    </section>
-
-    <section id="certificates">
-      <h2 class="section-title">Licenses & Certificates</h2>
-      <div class="card">
-        <h3>Bosch Certifications</h3>
-        <ul>
-          <li>Basics Project Management - B</li>
-          <li>Awareness for Data & AI</li>
-          <li>Grinding Technique Basic</li>
-          <li>Leading Smart Work</li>
-          <li>Project Management Fundamentals</li>
-          <li>Anti-Corruption: Gratuities in Dealings with Third Parties</li>
-          <li>Antitrust Law</li>
-          <li>Code of Business Conduct</li>
-          <li>Data Protection and Information Security</li>
-          <li>Dealing with Classified Information</li>
-          <li>Environmental Protection Training</li>
-          <li>Export Control</li>
-          <li>Product Development Code</li>
-          <li>Product Safety and Product Liability</li>
-          <li>Software License Management</li>
-          <li>Associate awareness Environment, Health and Safety</li>
-          <li>Environment, Health and Safety</li>
-          <li>General ISP rules for associates</li>
-        </ul>
-        <h3>External Certifications</h3>
-        <ul>
-          <li>Apple Search Ads Course by SearchAds.com</li>
-          <li>ASO Course by MobileAction</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="skills">
-      <h2 class="section-title">Technical Skills</h2>
-      <div class="card">
-        <ul>
-          <li>C++ (Fundamentals of Computer Programming)</li>
-          <li>C# (Unity game development)</li>
-          <li>Autodesk Inventor</li>
-          <li>Siemens NX</li>
-          <li>Technical Drawing</li>
-          <li>Microsoft Office</li>
-          <li>Kali Linux</li>
-          <li>Ubuntu</li>
-          <li>SAP</li>
-          <li>In-STEP Blue</li>
-          <li>Agile & Waterfall Project Management</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="hobbies">
-      <h2 class="section-title">Hobbies & Interests</h2>
-      <div class="card">
-        <ul>
-          <li>🎸 Composing music with classical guitar</li>
-          <li>🏀 Basketball</li>
-          <li>🥋 Martial Arts</li>
-          <li>🔒 Cyber Security</li>
-          <li>🎮 Game Development</li>
-        </ul>
-      </div>
-    </section>
-  </div>
 </body>
 </html>
